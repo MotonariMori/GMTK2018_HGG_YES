@@ -101,6 +101,9 @@ public class NickController : MonoBehaviour {
             myRigidbody.gravityScale = 2f;
             mySpriteRenderer.sprite = Sprite01;
         }
+
+        if (collision.gameObject.tag == "DeathZone")
+            iHealth = 0;
     }
 
 
