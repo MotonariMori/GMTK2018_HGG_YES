@@ -5,28 +5,18 @@ using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
-    public float iPlayerScore = 0f;
-    public GameObject playerScoreUI; 
-	
-	
-	void Update ()
-    {
-        playerScoreUI.gameObject.GetComponent<Text>().text = ("Garbage collected: " + iPlayerScore);
-	}
+    private GameManager myGM;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject.name == "Player")
-        {
-            CountScore();
-            Destroy(gameObject);
-        }
+        myGM = FindObjectOfType<GameManager>();
     }
 
-    float CountScore()
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        iPlayerScore = iPlayerScore + 1;
-        return iPlayerScore;
+        myGM.CountScore();
+        Destroy(gameObject);
     }
 
 }
