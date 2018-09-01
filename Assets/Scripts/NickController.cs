@@ -32,8 +32,8 @@ public class NickController : MonoBehaviour {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         //Setting the fish attributes
-        fSpeedInWater = 6f;
-        fSpeedOnGround = fSpeedInWater * 0.15f;
+        fSpeedInWater = 5f;
+        fSpeedOnGround = 2f;
         fJumpHeight = 8f;
         bOnGround = false;
         bInhaled = false;
@@ -58,16 +58,13 @@ public class NickController : MonoBehaviour {
     //Checking Collisions
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -0.5f);
+        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -2f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!bOnGround)
-        {
-            myRigidbody.gravityScale = -0.25f;
-            bInWater = true;
-        }
+        myRigidbody.gravityScale = -0.25f;
+        bInWater = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -90,13 +87,16 @@ public class NickController : MonoBehaviour {
     private void ControlFish()
     {
         //Controlling the fish in water
-        if (bInWater)
+        if (bInWater && !bInhaled)
         {
-            if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)                                    //Horizontal Input
-                myRigidbody.velocity = new Vector2(fSpeedInWater * Input.GetAxisRaw("Horizontal"), myRigidbody.velocity.y);
+            if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
+                if (myRigidbody.velocity.x < 6f)
+                    myRigidbody.AddForce(new Vector2(fSpeedInWater * Input.GetAxisRaw("Horizontal"), 0f));
 
-            if (Input.GetAxisRaw("Vertical") > 0.1f || Input.GetAxisRaw("Vertical") < -0.1f)                                        //Vertical Input
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, fSpeedInWater * Input.GetAxisRaw("Vertical"));
+
+            if (Input.GetAxisRaw("Vertical") > 0.1f || Input.GetAxisRaw("Vertical") < -0.1f)
+                if (myRigidbody.velocity.y < 3f || myRigidbody.velocity.y > -3f)
+                    myRigidbody.AddForce(new Vector2(0f, fSpeedInWater * Input.GetAxisRaw("Vertical")));
 
         }
 
@@ -127,6 +127,11 @@ public class NickController : MonoBehaviour {
                 transform.rotation = new Quaternion(0f, 0f, 0f, myRigidbody.velocity.x);
 
             }
+        }
+
+        if (bInWater && bInhaled)
+        {
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y);
         }
 
     }
