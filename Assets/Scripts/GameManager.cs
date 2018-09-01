@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.SceneManagement;
-=======
 using UnityEngine.UI;
->>>>>>> Sunbird
+
 
 public class GameManager : MonoBehaviour {
 
@@ -13,7 +11,7 @@ public class GameManager : MonoBehaviour {
     private int iAirInSeconds;
 
     public NickController myPlayer;
-    public GameObject playerScoreUI;
+    public Text playerScoreUI;
     public int iPlayerScore;
 
     // Use this for initialization
@@ -60,11 +58,11 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene(2);
         }
          //Count Garbage
-        playerScoreUI.gameObject.GetComponent<Text>().text = ("Garbage collected: " + iPlayerScore);
+        playerScoreUI.text = ("Garbage collected: " + iPlayerScore);
         Debug.Log("Eingesammelt: " + iPlayerScore);
     }
 
-    int CountScore()
+    public int CountScore()
     {
         iPlayerScore = iPlayerScore + 1;
         return iPlayerScore;

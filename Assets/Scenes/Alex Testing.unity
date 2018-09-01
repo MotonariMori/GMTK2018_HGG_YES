@@ -276,7 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerScore: 0
 --- !u!212 &68408209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -492,6 +491,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1086549125
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.20354067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.051315747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5.7421875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734111155158238, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473640570733250, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: playerScoreUI
+      value: 
+      objectReference: {fileID: 1654791386}
+    - target: {fileID: 114473640570733250, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: myPlayer
+      value: 
+      objectReference: {fileID: 1557806075}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1090339964
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerScore: 0
 --- !u!212 &1090339969
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -635,6 +685,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1509764634763820, guid: f343146da7a783f48a45aee057712d22,
     type: 2}
   m_PrefabInternal: {fileID: 83477610}
+--- !u!114 &1557806075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114654676241581170, guid: f343146da7a783f48a45aee057712d22,
+    type: 2}
+  m_PrefabInternal: {fileID: 83477610}
+  m_Script: {fileID: 11500000, guid: d4d93592336a45840be70628245d470d, type: 3}
 --- !u!1 &1635095675
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerScore: 0
 --- !u!212 &1635095679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -811,18 +866,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MinSize: 0
+    m_MaxSize: 200
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'hier
+
+'
 --- !u!222 &1654791387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -843,10 +900,10 @@ RectTransform:
   m_Father: {fileID: 1821769603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371.55, y: -209.04}
-  m_SizeDelta: {x: 17.808, y: 10.004}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -191.1, y: -76.79999}
+  m_SizeDelta: {x: 322, y: 113.70001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1821769599
 GameObject:
@@ -1015,7 +1072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerScore: 0
 --- !u!212 &1881345468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1153,7 +1209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerScore: 0
 --- !u!212 &1958720117
 SpriteRenderer:
   m_ObjectHideFlags: 0
