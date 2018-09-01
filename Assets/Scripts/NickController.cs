@@ -12,6 +12,7 @@ public class NickController : MonoBehaviour {
     public float fJumpHeight;
     public bool bOnGround;
     public bool bInhaled;
+    public bool bInWater;
 
     private Rigidbody2D myRigidbody;
     private BoxCollider2D myBoxCollider;
@@ -33,9 +34,10 @@ public class NickController : MonoBehaviour {
         //Setting the fish attributes
         fSpeedInWater = 6f;
         fSpeedOnGround = fSpeedInWater * 0.15f;
-        fJumpHeight = 6f;
+        fJumpHeight = 8f;
         bOnGround = false;
         bInhaled = false;
+        bInWater = false;
 
 	}
 	
@@ -54,22 +56,33 @@ public class NickController : MonoBehaviour {
     //new Functions
 
     //Checking Collisions
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.tag == "Water")
-        {
-            myBoxCollider.isTrigger = true;
-            myRigidbody.gravityScale = -0.5f;
-        }
-        else
-            bOnGround = true;
- 
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myBoxCollider.isTrigger = false;
+        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -0.5f);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!bOnGround)
+        {
+            myRigidbody.gravityScale = -0.25f;
+            bInWater = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         myRigidbody.gravityScale = 2f;
+        bInWater = false;
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!bInWater)
+        {
+            bOnGround = true;
+            myRigidbody.gravityScale = 2f;
+        }
     }
 
 
@@ -77,17 +90,14 @@ public class NickController : MonoBehaviour {
     private void ControlFish()
     {
         //Controlling the fish in water
-        if (myBoxCollider.isTrigger)
+        if (bInWater)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)                                    //Horizontal Input
                 myRigidbody.velocity = new Vector2(fSpeedInWater * Input.GetAxisRaw("Horizontal"), myRigidbody.velocity.y);
-            else
-                myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y);                                                     //Stopping velocity
 
             if (Input.GetAxisRaw("Vertical") > 0.1f || Input.GetAxisRaw("Vertical") < -0.1f)                                        //Vertical Input
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, fSpeedInWater * Input.GetAxisRaw("Vertical"));
-            else
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);                                                     //Stopping velocity
+
         }
 
         //Controlling the fish on ground
