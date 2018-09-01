@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, -10);
+        transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, -10);  
 
 	}
 	
@@ -21,10 +21,10 @@ public class CameraController : MonoBehaviour {
         if (Mathf.Abs(transform.position.y - Target.transform.position.y) > 1)
             transform.position = Vector3.Lerp(transform.position, Target.transform.position, 1f * Time.deltaTime);
 
-        print(Mathf.Abs(transform.position.y - Target.transform.position.y));
-
         if (transform.position.y < -1)
             transform.position = new Vector3(transform.position.x, -1, -10);
 
 	}
+
+
 }
