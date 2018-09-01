@@ -56,11 +56,14 @@ public class NickController : MonoBehaviour {
             bOnGround = true;
 
         if (!bOnGround && myRigidbody.velocity.x == 0)
-            if (transform.rotation.x == 1)
+        {
+            if (transform.localScale.x == 1)
                 myRigidbody.velocity = new Vector2(-0.5f, myRigidbody.velocity.y);
-            else
+            if (transform.localScale.x == -1)
                 myRigidbody.velocity = new Vector2(0.5f, myRigidbody.velocity.y);
+        }
     }
+
 
 
 
@@ -98,6 +101,9 @@ public class NickController : MonoBehaviour {
             myRigidbody.gravityScale = 2f;
             mySpriteRenderer.sprite = Sprite01;
         }
+
+        if (collision.gameObject.tag == "DeathZone")
+            iHealth = 0;
     }
 
 
