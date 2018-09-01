@@ -10,6 +10,9 @@ public class NickController : MonoBehaviour {
     [SerializeField]
     private float fSpeedOnGround;
     public float fJumpHeight;
+    [Space(10)]
+    public int iHealth;
+    [Space(10)]
     public bool bOnGround;
     public bool bInhaled;
     public bool bInWater;
@@ -38,6 +41,7 @@ public class NickController : MonoBehaviour {
         bOnGround = false;
         bInhaled = false;
         bInWater = false;
+        iHealth = 3;
 
 	}
 	
