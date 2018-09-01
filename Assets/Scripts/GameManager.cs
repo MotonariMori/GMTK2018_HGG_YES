@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -8,14 +11,17 @@ public class GameManager : MonoBehaviour {
     private int iAirInSeconds;
 
     public NickController myPlayer;
+    public Text playerScoreUI;
+    public int iPlayerScore;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         myPlayer = FindObjectOfType<NickController>();
         iFrameCounter = 0;
         iAirInSeconds = 6;
-
+        iPlayerScore = 0;
+        
 	}
 	
 	// Update is called once per frame
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour {
                     myPlayer.iHealth--;
                     iAirInSeconds = 6;
                 }
-                print(iAirInSeconds);
+                //print(iAirInSeconds);
             }
         }
         else
@@ -43,13 +49,29 @@ public class GameManager : MonoBehaviour {
             iFrameCounter = 0;
             myPlayer.iHealth = 3;
             iAirInSeconds = 6;
-            print(iAirInSeconds);
+           // print(iAirInSeconds);
         }
 
         if (myPlayer.iHealth <= 0)
         {
-            print("You Suck!");
+            //print("You Suck!");
+            SceneManager.LoadScene(2);
         }
+         //Count Garbage
+        playerScoreUI.text = ("Garbage collected: " + iPlayerScore);
+        Debug.Log("Eingesammelt: " + iPlayerScore);
+    }
 
-	}
+    public int CountScore()
+    {
+        iPlayerScore = iPlayerScore + 1;
+        return iPlayerScore;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CountScore();
+        Destroy(gameObject);
+    }
+
 }
