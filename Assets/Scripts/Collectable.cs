@@ -19,7 +19,7 @@ public class Collectable : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             CountScore();
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
 
