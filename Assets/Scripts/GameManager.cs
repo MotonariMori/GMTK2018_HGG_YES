@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
                     myPlayer.iHealth--;
                     iAirInSeconds = 6;
                 }
-                print(iAirInSeconds);
+                //print(iAirInSeconds);
             }
         }
         else
@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour {
             iFrameCounter = 0;
             myPlayer.iHealth = 3;
             iAirInSeconds = 6;
-            print(iAirInSeconds);
+           // print(iAirInSeconds);
         }
 
         if (myPlayer.iHealth <= 0)
         {
-            print("You Suck!");
+            //print("You Suck!");
         }
 
 	}

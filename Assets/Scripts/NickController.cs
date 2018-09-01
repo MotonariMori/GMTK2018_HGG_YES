@@ -24,6 +24,7 @@ public class NickController : MonoBehaviour {
     [Header("Sprites")]
     public Sprite Sprite01;
     public Sprite Sprite02;
+    public Sprite Sprite03;
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,8 @@ public class NickController : MonoBehaviour {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         //Setting the fish attributes
-        fSpeedInWater = 5f;
-        fSpeedOnGround = 2f;
+        fSpeedInWater = 6f;
+        fSpeedOnGround = 1f;
         fJumpHeight = 8f;
         bOnGround = false;
         bInhaled = false;
@@ -51,6 +52,9 @@ public class NickController : MonoBehaviour {
         ControlFish();
         Inhaling();
 
+        if (myRigidbody.velocity.y == 0)
+            bOnGround = true;
+
 	}
 
 
@@ -62,18 +66,22 @@ public class NickController : MonoBehaviour {
     //Checking Collisions
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -2f);
+        myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -1f);
+        mySpriteRenderer.sprite = Sprite01;
+        bOnGround = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         myRigidbody.gravityScale = -0.25f;
         bInWater = true;
+        bOnGround = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         myRigidbody.gravityScale = 2f;
         bInWater = false;
+        mySpriteRenderer.sprite = Sprite03;
 
     }
 
@@ -83,6 +91,7 @@ public class NickController : MonoBehaviour {
         {
             bOnGround = true;
             myRigidbody.gravityScale = 2f;
+            mySpriteRenderer.sprite = Sprite01;
         }
     }
 
@@ -90,11 +99,17 @@ public class NickController : MonoBehaviour {
     //Controls
     private void ControlFish()
     {
+
+        if (Input.GetAxisRaw("Horizontal") < 0 && !bInhaled)
+            transform.localScale = new Vector3(-1, 1, 1);
+        if (Input.GetAxisRaw("Horizontal") > 0 && !bInhaled)
+            transform.localScale = new Vector3(1, 1, 1);
+
         //Controlling the fish in water
         if (bInWater && !bInhaled)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
-                if (myRigidbody.velocity.x < 6f)
+                if (myRigidbody.velocity.x < 5f)
                     myRigidbody.AddForce(new Vector2(fSpeedInWater * Input.GetAxisRaw("Horizontal"), 0f));
 
 
@@ -105,37 +120,35 @@ public class NickController : MonoBehaviour {
         }
 
         //Controlling the fish on ground
-        else
+        //Checks, if the fish is on the ground
+        else if (bOnGround && !bInhaled)
         {
-            //Checks, if the fish is on the ground
-            if (bOnGround && !bInhaled)
+            if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
             {
-                if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
-                {
-                    myRigidbody.velocity = new Vector2(fSpeedOnGround * Input.GetAxisRaw("Horizontal"), fJumpHeight * Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-                    bOnGround = false;
-                }
+
+                myRigidbody.velocity = new Vector2(fSpeedOnGround * Input.GetAxisRaw("Horizontal"), fJumpHeight * Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+                bOnGround = false;
+                mySpriteRenderer.sprite = Sprite03;
+                StartCoroutine("SpriteChange");
             }
-
-
         }
+
 
         //Controlling Inhaled fish on ground
         
         //Checks, if the fish is on the ground
-        if (bOnGround && bInhaled)
+        else if (bOnGround && bInhaled)
         {
             if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
             {
                 myRigidbody.AddForce(new Vector2(fSpeedOnGround * 2 * Input.GetAxisRaw("Horizontal"), myRigidbody.velocity.y));
-                transform.rotation = new Quaternion(0f, 0f, 0f, myRigidbody.velocity.x);
+                transform.Rotate(Vector3.forward);
 
             }
         }
-
-        if (bInWater && bInhaled)
+        else
         {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y);
+            //myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y);
         }
 
     }
@@ -155,12 +168,19 @@ public class NickController : MonoBehaviour {
         }
         else
         {
-            mySpriteRenderer.sprite = Sprite01;
             myCircleCollider.enabled = false;
             myBoxCollider.enabled = true;
             bInhaled = false;
             transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             myRigidbody.freezeRotation = true;
         }
+    }
+
+    private IEnumerator SpriteChange()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (!bInhaled)
+            mySpriteRenderer.sprite = Sprite01;
+        
     }
 }
