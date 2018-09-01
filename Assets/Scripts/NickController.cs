@@ -55,7 +55,12 @@ public class NickController : MonoBehaviour {
         if (myRigidbody.velocity.y == 0)
             bOnGround = true;
 
-	}
+        if (!bOnGround && myRigidbody.velocity.x == 0)
+            if (transform.rotation.x == 1)
+                myRigidbody.velocity = new Vector2(-0.5f, myRigidbody.velocity.y);
+            else
+                myRigidbody.velocity = new Vector2(0.5f, myRigidbody.velocity.y);
+    }
 
 
 
@@ -146,10 +151,10 @@ public class NickController : MonoBehaviour {
 
             }
         }
-        else
+        /*else
         {
             //myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y);
-        }
+        }*/
 
     }
 
