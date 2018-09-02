@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     private int iFrameCounter;
+    [SerializeField]
     private int iAirInSeconds;
 
     private int iFramesInWater;
@@ -15,12 +16,19 @@ public class GameManager : MonoBehaviour {
     public PlayerController myPlayer;
     public Text playerScoreUI;
     public int iPlayerScore;
-    public Image HealthUI;
 
+    [Space(10)]
+    [Header("Health")]
+    public Image HealthUI;
     public Sprite SpriteEmpty;
     public Sprite SpriteOne;
     public Sprite SpriteTwo;
     public Sprite SpriteFull;
+    [Space (10)]
+    [Header("Air")]
+    public Image Air1;
+    public Image Air2;
+    public Image Air3;
 
     public PauseMenu myPauseMenu;
 
@@ -30,14 +38,27 @@ public class GameManager : MonoBehaviour {
         myPauseMenu = FindObjectOfType<PauseMenu>();
         myPlayer = FindObjectOfType<PlayerController>();
         iFrameCounter = 0;
-        iAirInSeconds = 6;
+        iAirInSeconds = 18;
         iPlayerScore = 0;
-        
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
+        if (iAirInSeconds < 12)
+            Air3.enabled = false;
+        else
+            Air3.enabled = true;
+
+        if (iAirInSeconds < 6)
+            Air2.enabled = false;
+        else
+            Air2.enabled = true;
+
+        if (iAirInSeconds < 1)
+            Air1.enabled = false;
+        else
+            Air1.enabled = true;
 
         switch (myPlayer.iHealth)
         {
@@ -62,16 +83,18 @@ public class GameManager : MonoBehaviour {
                 iFrameCounter++;
                 if (iFrameCounter % 60 == 0)
                 {
-                    if (iAirInSeconds > 0)
+                    if (iAirInSeconds % 6 == 0 && iAirInSeconds < 18)
                     {
+                        myPlayer.iHealth--;
                         iAirInSeconds--;
+
                     }
                     else
                     {
-                        myPlayer.iHealth--;
-                        iAirInSeconds = 6;
+
+                        iAirInSeconds--;
                     }
-                    //print(iAirInSeconds);
+                    
                 }
             }
             else
@@ -80,17 +103,20 @@ public class GameManager : MonoBehaviour {
 
                 if (myPlayer.iHealth < 3)
                 {
+                    iFramesInWater++;
+
                     if (iFramesInWater % 120 == 0)
                     {
                         myPlayer.iHealth++;
                     }
-
-                    iFramesInWater++;
+                    
                 }
                 else
                     iFramesInWater = 0;
 
-                iAirInSeconds = 6;
+                if (iAirInSeconds < 18)
+                    if (iFramesInWater % 20 == 0)
+                        iAirInSeconds++;
             }
 
             if (myPlayer.iHealth <= 0)
