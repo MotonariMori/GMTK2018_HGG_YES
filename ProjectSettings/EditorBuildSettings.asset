@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Alex Testing.unity
-    guid: a6b2887b5f2f8ba43be5e8a1da750ead
-  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: f1906a6aed46b9b449ee9f21ae16c5d3
+  - enabled: 1
+    path: Assets/Scenes/Alex Testing.unity
+    guid: a6b2887b5f2f8ba43be5e8a1da750ead
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

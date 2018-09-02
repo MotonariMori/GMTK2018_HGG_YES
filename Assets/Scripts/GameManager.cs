@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour {
             if (myPlayer.iHealth <= 0)
             {
                 //print("You Suck!");
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
             //Count Garbage
             playerScoreUI.text = ("" + iPlayerScore);
