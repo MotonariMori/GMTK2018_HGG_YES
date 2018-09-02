@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1766039771080190
 GameObject:
   m_ObjectHideFlags: 1
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bLostGame: 0
   LosingScreen: {fileID: 1000682957799548}
-  WinningScreen: {fileID: 0}
+  WinningScreen: {fileID: 1515334297092172}
 --- !u!114 &114800663007934308
 MonoBehaviour:
   m_ObjectHideFlags: 1
