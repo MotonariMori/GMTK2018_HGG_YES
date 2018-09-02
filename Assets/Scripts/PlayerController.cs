@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite Sprite01;
     public Sprite Sprite02;
     public Sprite Sprite03;
+    public Sprite Sprite04;
 
 	// Use this for initialization
 	void Start () {
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Spikes")
         {
+            StartCoroutine("Hurt");
             myRigidbody.velocity = new Vector2(-myRigidbody.velocity.x, -3f);
             if (Mathf.Abs(myRigidbody.velocity.x) > 3)
             {
@@ -202,11 +204,22 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+
+
+
     private IEnumerator SpriteChange()
     {
         yield return new WaitForSeconds(.5f);
         if (!bInhaled)
             mySpriteRenderer.sprite = Sprite01;
         
+    }
+
+    private IEnumerator Hurt()
+    {
+        Sprite thisSprite = mySpriteRenderer.sprite;
+        mySpriteRenderer.sprite = Sprite04;
+        yield return new WaitForSeconds(.3f);
+        mySpriteRenderer.sprite = thisSprite;
     }
 }
