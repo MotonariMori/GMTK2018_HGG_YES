@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour {
     private int iFrameCounter;
     private int iAirInSeconds;
 
-    public NickController myPlayer;
+    public PlayerController myPlayer;
     public Text playerScoreUI;
     public int iPlayerScore;
 
     // Use this for initialization
     void Start () {
 
-        myPlayer = FindObjectOfType<NickController>();
+        myPlayer = FindObjectOfType<PlayerController>();
         iFrameCounter = 0;
         iAirInSeconds = 6;
         iPlayerScore = 0;
