@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public EndScreen myEndScreen;
     //Variables
     [Header("Fish Attributes")]
     public float fSpeedInWater;
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour {
     public Sprite Sprite03;
     public Sprite Sprite04;
 
+    
+
 	// Use this for initialization
 	void Start () {
 
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         myCircleCollider = GetComponent<CircleCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myPauseMenu = FindObjectOfType<PauseMenu>();
+        myEndScreen = FindObjectOfType<EndScreen>();
 
         //Setting the fish attributes
         fSpeedInWater = 6f;
@@ -106,7 +110,8 @@ public class PlayerController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Finish")
         {
-
+            SceneManager.LoadScene(0);
+            myEndScreen.bLostGame = true;
         }
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HIER NICHT MEHR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
