@@ -38,68 +38,69 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+        switch (myPlayer.iHealth)
+        {
+            case 0:
+                HealthUI.sprite = SpriteEmpty;
+                break;
+            case 1:
+                HealthUI.sprite = SpriteOne;
+                break;
+            case 2:
+                HealthUI.sprite = SpriteTwo;
+                break;
+            default:
+                HealthUI.sprite = SpriteFull;
+                break;
+        }
+
         if (!myPauseMenu.bGameIsPaused)
         {
-            switch (myPlayer.iHealth)
+            if (!myPlayer.bInWater)
             {
-                case 0:
-                    HealthUI.sprite = SpriteEmpty;
-                    break;
-                case 1:
-                    HealthUI.sprite = SpriteOne;
-                    break;
-                case 2:
-                    HealthUI.sprite = SpriteTwo;
-                    break;
-                default:
-                    HealthUI.sprite = SpriteFull;
-                    break;
-            }
-        }
-		
-        if (!myPlayer.bInWater)
-        {
-            iFrameCounter++;
-            if (iFrameCounter % 60 == 0)
-            {
-                if (iAirInSeconds > 0)
+                iFrameCounter++;
+                if (iFrameCounter % 60 == 0)
                 {
-                    iAirInSeconds--;
+                    if (iAirInSeconds > 0)
+                    {
+                        iAirInSeconds--;
+                    }
+                    else
+                    {
+                        myPlayer.iHealth--;
+                        iAirInSeconds = 6;
+                    }
+                    //print(iAirInSeconds);
                 }
-                else
-                {
-                    myPlayer.iHealth--;
-                    iAirInSeconds = 6;
-                }
-                //print(iAirInSeconds);
-            }
-        }
-        else
-        {
-            iFrameCounter = 0;
-
-            if (myPlayer.iHealth < 3)
-            {
-                if (iFramesInWater % 120 == 0)
-                {
-                    myPlayer.iHealth++;
-                }
-
-                iFramesInWater++;
             }
             else
-                iFramesInWater = 0;
+            {
+                iFrameCounter = 0;
 
-            iAirInSeconds = 6;
-        }
+                if (myPlayer.iHealth < 3)
+                {
+                    if (iFramesInWater % 120 == 0)
+                    {
+                        myPlayer.iHealth++;
+                    }
 
-        if (myPlayer.iHealth <= 0)
-        {
-            //print("You Suck!");
-            SceneManager.LoadScene(2);
+                    iFramesInWater++;
+                }
+                else
+                    iFramesInWater = 0;
+
+                iAirInSeconds = 6;
+            }
+
+            if (myPlayer.iHealth <= 0)
+            {
+                //print("You Suck!");
+                SceneManager.LoadScene(2);
+            }
+            //Count Garbage
+            playerScoreUI.text = ("" + iPlayerScore);
         }
-         //Count Garbage
-        playerScoreUI.text = ("" + iPlayerScore);
     }
 
 
