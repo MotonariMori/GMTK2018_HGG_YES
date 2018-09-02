@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1668176856016966}
+  m_RootGameObject: {fileID: 1157591528115430}
   m_IsPrefabAsset: 1
---- !u!1 &1668176856016966
+--- !u!1 &1157591528115430
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4734111155158238}
-  - component: {fileID: 114473640570733250}
+  - component: {fileID: 4917182973415532}
+  - component: {fileID: 114199933972936206}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4734111155158238
+--- !u!4 &4917182973415532
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668176856016966}
+  m_GameObject: {fileID: 1157591528115430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.20354067, y: -0.051315747, z: 5.7421875}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,14 +40,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114473640570733250
+--- !u!114 &114199933972936206
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668176856016966}
+  m_GameObject: {fileID: 1157591528115430}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22897c0af295bd6438220b7092f1afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  playerScoreUI: {fileID: 0}
+  iPlayerScore: 0
+  HealthUI: {fileID: 0}
+  SpriteEmpty: {fileID: 21300000, guid: b00ee21c34666174a9a646a8f49a981b, type: 3}
+  SpriteOne: {fileID: 21300000, guid: f52b46feb10e92242a7b506a744558f5, type: 3}
+  SpriteTwo: {fileID: 21300000, guid: a536a430c4f0317459b545741bbbbffb, type: 3}
+  SpriteFull: {fileID: 21300000, guid: 911c63bf5e247ff4695d363e15b2e624, type: 3}
+  myPauseMenu: {fileID: 0}
