@@ -276,6 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite01: {fileID: 0}
+  Sprite02: {fileID: 0}
+  Sprite03: {fileID: 0}
+  Sprite04: {fileID: 0}
 --- !u!212 &68408209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -442,6 +446,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 58274729}
+    - target: {fileID: 114292531049751510, guid: c5bcd8f38babf784f9d307f7a904046a,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5bcd8f38babf784f9d307f7a904046a, type: 2}
   m_IsPrefabAsset: 0
@@ -539,7 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2053067904}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &517516419
@@ -709,6 +718,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite01: {fileID: 0}
+  Sprite02: {fileID: 0}
+  Sprite03: {fileID: 0}
+  Sprite04: {fileID: 0}
 --- !u!212 &1090339969
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1139,6 +1152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite01: {fileID: 0}
+  Sprite02: {fileID: 0}
+  Sprite03: {fileID: 0}
+  Sprite04: {fileID: 0}
 --- !u!212 &1881345468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1276,6 +1293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3aa9d586f4e544599017010d91e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite01: {fileID: 0}
+  Sprite02: {fileID: 0}
+  Sprite03: {fileID: 0}
+  Sprite04: {fileID: 0}
 --- !u!212 &1958720117
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1440,3 +1461,8 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c9a2401423de2488594ccb80328714, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2053067904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1185330844740368, guid: c5bcd8f38babf784f9d307f7a904046a,
+    type: 2}
+  m_PrefabInternal: {fileID: 148195904}
