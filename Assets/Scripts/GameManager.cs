@@ -58,8 +58,7 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene(2);
         }
          //Count Garbage
-        playerScoreUI.text = ("Garbage collected: " + iPlayerScore);
-        Debug.Log("Eingesammelt: " + iPlayerScore);
+        playerScoreUI.text = ("" + iPlayerScore);
     }
 
     public int CountScore()
