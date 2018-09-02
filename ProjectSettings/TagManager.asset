@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - DeathZone
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Air
     uniqueID: 2090707615
+    locked: 0
+  - name: Spikes
+    uniqueID: 298139717
     locked: 0
   - name: Water Background
     uniqueID: 2841302181
