@@ -31,11 +31,13 @@ public class GameManager : MonoBehaviour {
     public Image Air3;
 
     public PauseMenu myPauseMenu;
+    public EndScreen myEndScreen;
 
     // Use this for initialization
     void Start () {
 
         myPauseMenu = FindObjectOfType<PauseMenu>();
+        myEndScreen = FindObjectOfType<EndScreen>();
         myPlayer = FindObjectOfType<PlayerController>();
         iFrameCounter = 0;
         iAirInSeconds = 18;
@@ -122,7 +124,8 @@ public class GameManager : MonoBehaviour {
             if (myPlayer.iHealth <= 0)
             {
                 //print("You Suck!");
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(0);
+                myEndScreen.bLostGame = false;
             }
             //Count Garbage
             playerScoreUI.text = ("" + iPlayerScore);
