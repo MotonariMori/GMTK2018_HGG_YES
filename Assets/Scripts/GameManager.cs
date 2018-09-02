@@ -80,12 +80,13 @@ public class GameManager : MonoBehaviour {
 
                 if (myPlayer.iHealth < 3)
                 {
+                    iFramesInWater++;
+
                     if (iFramesInWater % 120 == 0)
                     {
                         myPlayer.iHealth++;
                     }
-
-                    iFramesInWater++;
+                    
                 }
                 else
                     iFramesInWater = 0;
