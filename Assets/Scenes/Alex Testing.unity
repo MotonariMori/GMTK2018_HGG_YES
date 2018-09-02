@@ -441,6 +441,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1654008936}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &880345225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114715722406065938, guid: fe8b2a8f72665db47ac46f7501868775,
+    type: 2}
+  m_PrefabInternal: {fileID: 997256687}
+  m_Script: {fileID: 11500000, guid: 838ac8136fe528640ae5540db01a3ee5, type: 3}
 --- !u!114 &968356208 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114527072667782732, guid: 2e5d5fa0ded51a247806e8238e4a4272,
@@ -603,11 +609,6 @@ Prefab:
       objectReference: {fileID: 392841175}
     - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
         type: 2}
-      propertyPath: myPauseMenu
-      value: 
-      objectReference: {fileID: 639668095}
-    - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
-        type: 2}
       propertyPath: Air1
       value: 
       objectReference: {fileID: 780554349}
@@ -621,6 +622,11 @@ Prefab:
       propertyPath: Air3
       value: 
       objectReference: {fileID: 367331615}
+    - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: myPauseMenu
+      value: 
+      objectReference: {fileID: 639668095}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
   m_IsPrefabAsset: 0
@@ -628,12 +634,12 @@ Prefab:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1240200183308212, guid: f343146da7a783f48a45aee057712d22,
     type: 2}
-  m_PrefabInternal: {fileID: 1706488987}
+  m_PrefabInternal: {fileID: 1754254780}
 --- !u!114 &1557806075 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114525672086165036, guid: f343146da7a783f48a45aee057712d22,
     type: 2}
-  m_PrefabInternal: {fileID: 1706488987}
+  m_PrefabInternal: {fileID: 1754254780}
   m_Script: {fileID: 11500000, guid: a3db6bcd020cea84ea0bffc08b95ed1d, type: 3}
 --- !u!1001 &1654008936
 Prefab:
@@ -751,7 +757,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1654008936}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1001 &1706488987
+--- !u!1001 &1754254780
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -790,6 +796,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114525672086165036, guid: f343146da7a783f48a45aee057712d22,
+        type: 2}
+      propertyPath: myEndScreen
+      value: 
+      objectReference: {fileID: 880345225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f343146da7a783f48a45aee057712d22, type: 2}
   m_IsPrefabAsset: 0

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour {
 
-    public bool bLostGame;
+    public bool bLostGame = true;
     public GameObject LosingScreen;
     public GameObject WinningScreen; 
 
@@ -30,5 +31,15 @@ public class EndScreen : MonoBehaviour {
     {
         WinningScreen.SetActive(true);
         LosingScreen.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }
