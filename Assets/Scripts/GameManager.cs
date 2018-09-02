@@ -10,9 +10,17 @@ public class GameManager : MonoBehaviour {
     private int iFrameCounter;
     private int iAirInSeconds;
 
+    private int iFramesInWater;
+
     public PlayerController myPlayer;
     public Text playerScoreUI;
     public int iPlayerScore;
+    public Image HealthUI;
+
+    public Sprite SpriteEmpty;
+    public Sprite SpriteOne;
+    public Sprite SpriteTwo;
+    public Sprite SpriteFull;
 
     // Use this for initialization
     void Start () {
@@ -26,6 +34,22 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        switch (myPlayer.iHealth)
+        {
+            case 0:
+                HealthUI.sprite = SpriteEmpty;
+                break;
+            case 1:
+                HealthUI.sprite = SpriteOne;
+                break;
+            case 2:
+                HealthUI.sprite = SpriteTwo;
+                break;
+            default:
+                HealthUI.sprite = SpriteFull;
+                break;
+        }
 		
         if (!myPlayer.bInWater)
         {
@@ -47,9 +71,20 @@ public class GameManager : MonoBehaviour {
         else
         {
             iFrameCounter = 0;
-            myPlayer.iHealth = 3;
+
+            if (myPlayer.iHealth < 3)
+            {
+                if (iFramesInWater % 120 == 0)
+                {
+                    myPlayer.iHealth++;
+                }
+
+                iFramesInWater++;
+            }
+            else
+                iFramesInWater = 0;
+
             iAirInSeconds = 6;
-           // print(iAirInSeconds);
         }
 
         if (myPlayer.iHealth <= 0)
@@ -60,6 +95,9 @@ public class GameManager : MonoBehaviour {
          //Count Garbage
         playerScoreUI.text = ("" + iPlayerScore);
     }
+
+
+
 
     public int CountScore()
     {
