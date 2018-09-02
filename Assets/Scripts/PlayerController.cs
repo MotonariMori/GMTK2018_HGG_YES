@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour {
             }
 
             iHealth--;
-            Debug.Log(iHealth);
         }
     }
 
