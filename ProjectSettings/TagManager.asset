@@ -49,8 +49,8 @@ TagManager:
   - name: Air
     uniqueID: 2090707615
     locked: 0
-  - name: Water
-    uniqueID: 577087361
+  - name: Water Background
+    uniqueID: 2841302181
     locked: 0
   - name: Ground
     uniqueID: 3905153981
@@ -60,4 +60,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1868250655
+    locked: 0
+  - name: Water
+    uniqueID: 577087361
     locked: 0
