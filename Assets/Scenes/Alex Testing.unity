@@ -308,6 +308,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5bcd8f38babf784f9d307f7a904046a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &367331615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114920935978658394, guid: 2e5d5fa0ded51a247806e8238e4a4272,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654008936}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &392841175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114182058019198070, guid: 2e5d5fa0ded51a247806e8238e4a4272,
@@ -424,6 +430,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 148195904}
   m_Script: {fileID: 11500000, guid: 0e44cbf5cce211b4da0fa9d0bcdec4de, type: 3}
+--- !u!114 &780554349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114009435053312180, guid: 2e5d5fa0ded51a247806e8238e4a4272,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654008936}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &968356208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114527072667782732, guid: 2e5d5fa0ded51a247806e8238e4a4272,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654008936}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1072462409
 Prefab:
   m_ObjectHideFlags: 0
@@ -525,6 +543,21 @@ Prefab:
       propertyPath: myPauseMenu
       value: 
       objectReference: {fileID: 639668095}
+    - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: Air1
+      value: 
+      objectReference: {fileID: 780554349}
+    - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: Air2
+      value: 
+      objectReference: {fileID: 968356208}
+    - target: {fileID: 114199933972936206, guid: a78b8c86ece6406439b112b8acbbb948,
+        type: 2}
+      propertyPath: Air3
+      value: 
+      objectReference: {fileID: 367331615}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a78b8c86ece6406439b112b8acbbb948, type: 2}
   m_IsPrefabAsset: 0
@@ -641,6 +674,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 58274729}
+    - target: {fileID: 114009435053312180, guid: 2e5d5fa0ded51a247806e8238e4a4272,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e5d5fa0ded51a247806e8238e4a4272, type: 2}
   m_IsPrefabAsset: 0
