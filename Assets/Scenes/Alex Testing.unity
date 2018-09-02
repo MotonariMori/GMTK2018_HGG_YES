@@ -340,13 +340,7 @@ RectTransform:
   m_AnchoredPosition: {x: 8.87, y: -0.41}
   m_SizeDelta: {x: 0.7, y: 0.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &392841175 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114425629990543946, guid: 2e5d5fa0ded51a247806e8238e4a4272,
-    type: 2}
-  m_PrefabInternal: {fileID: 1654008936}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1001 &419070225
+--- !u!1001 &148195904
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -443,9 +437,20 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223832165885146944, guid: c5bcd8f38babf784f9d307f7a904046a,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 58274729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5bcd8f38babf784f9d307f7a904046a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &392841175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114425629990543946, guid: 2e5d5fa0ded51a247806e8238e4a4272,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654008936}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &462335900
 Prefab:
   m_ObjectHideFlags: 0
