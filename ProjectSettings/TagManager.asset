@@ -50,14 +50,11 @@ TagManager:
   - name: Air
     uniqueID: 2090707615
     locked: 0
-  - name: Spikes
-    uniqueID: 298139717
-    locked: 0
   - name: Water Background
     uniqueID: 2841302181
     locked: 0
-  - name: Ground
-    uniqueID: 3905153981
+  - name: Spikes
+    uniqueID: 298139717
     locked: 0
   - name: Collectables
     uniqueID: 3868194665
@@ -67,4 +64,7 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 577087361
+    locked: 0
+  - name: Ground
+    uniqueID: 3905153981
     locked: 0
