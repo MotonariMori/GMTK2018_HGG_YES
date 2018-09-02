@@ -544,23 +544,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114715722406065938, guid: fe8b2a8f72665db47ac46f7501868775,
-        type: 2}
-      propertyPath: WinningScreen
-      value: 
-      objectReference: {fileID: 997256688}
-    - target: {fileID: 1673193973589376, guid: fe8b2a8f72665db47ac46f7501868775, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8b2a8f72665db47ac46f7501868775, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &997256688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1515334297092172, guid: fe8b2a8f72665db47ac46f7501868775,
-    type: 2}
-  m_PrefabInternal: {fileID: 997256687}
 --- !u!1001 &1086549125
 Prefab:
   m_ObjectHideFlags: 0
