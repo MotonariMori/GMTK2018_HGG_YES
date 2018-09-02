@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22897c0af295bd6438220b7092f1afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iAirInSeconds: 18
   myPlayer: {fileID: 0}
   playerScoreUI: {fileID: 0}
   iPlayerScore: 0
@@ -59,4 +60,9 @@ MonoBehaviour:
   SpriteOne: {fileID: 21300000, guid: f52b46feb10e92242a7b506a744558f5, type: 3}
   SpriteTwo: {fileID: 21300000, guid: a536a430c4f0317459b545741bbbbffb, type: 3}
   SpriteFull: {fileID: 21300000, guid: 911c63bf5e247ff4695d363e15b2e624, type: 3}
+  Air1: {fileID: 0}
+  Air2: {fileID: 0}
+  Air3: {fileID: 0}
   myPauseMenu: {fileID: 0}
+  myEndScreen: {fileID: 114715722406065938, guid: fe8b2a8f72665db47ac46f7501868775,
+    type: 2}

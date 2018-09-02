@@ -3,7 +3,19 @@ guid: 22897c0af295bd6438220b7092f1afb7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - myPlayer: {instanceID: 0}
+  - playerScoreUI: {instanceID: 0}
+  - HealthUI: {instanceID: 0}
+  - SpriteEmpty: {instanceID: 0}
+  - SpriteOne: {instanceID: 0}
+  - SpriteTwo: {instanceID: 0}
+  - SpriteFull: {instanceID: 0}
+  - Air1: {fileID: 114009435053312180, guid: 2e5d5fa0ded51a247806e8238e4a4272, type: 2}
+  - Air2: {fileID: 114527072667782732, guid: 2e5d5fa0ded51a247806e8238e4a4272, type: 2}
+  - Air3: {instanceID: 0}
+  - myPauseMenu: {instanceID: 0}
+  - myEndScreen: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
