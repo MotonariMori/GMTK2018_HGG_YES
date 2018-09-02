@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        myRigidbody.gravityScale = -0.25f;
+        myRigidbody.gravityScale = -0.07f;
         bInWater = true;
         bOnGround = false;
     }
@@ -107,16 +107,17 @@ public class PlayerController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Spikes")
         {
-            if (transform.localScale.x == -1)
+            myRigidbody.velocity = new Vector2(-myRigidbody.velocity.x, -3f);
+            if (Mathf.Abs(myRigidbody.velocity.x) > 3)
             {
-                myRigidbody.velocity = new Vector2(1f, myRigidbody.velocity.y);
-                iHealth--;
+                if (myRigidbody.velocity.x < 0)
+                    myRigidbody.velocity = new Vector2(3, myRigidbody.velocity.y);
+                if (myRigidbody.velocity.x > 0)
+                    myRigidbody.velocity = new Vector2(-3, myRigidbody.velocity.y);
             }
-            else
-            {
-                myRigidbody.velocity = new Vector2(-1f, myRigidbody.velocity.y);
-                iHealth--;
-            }
+
+            iHealth--;
+            Debug.Log(iHealth);
         }
     }
 
@@ -171,14 +172,9 @@ public class PlayerController : MonoBehaviour {
 
             }
         }
-        /*else
-        {
-            //myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y);
-        }*/
 
     }
-
-
+    
 
     //Controlling the Inhaling of the fish
     private void Inhaling()
