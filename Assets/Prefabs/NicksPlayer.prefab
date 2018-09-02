@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d93592336a45840be70628245d470d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myEndScreen: {fileID: 0}
   fSpeedInWater: 0
   fSpeedOnGround: 0
   fJumpHeight: 0
@@ -124,7 +125,7 @@ MonoBehaviour:
   bInWater: 0
   Sprite01: {fileID: 21300000, guid: fb34dfc8702d1de4fb86902529f67752, type: 3}
   Sprite02: {fileID: 21300000, guid: cacf5eac40548a64eba1765052e12eb5, type: 3}
-  Sprite03: {fileID: 21300000, guid: fb34dfc8702d1de4fb86902529f67752, type: 3}
+  Sprite03: {fileID: 21300000, guid: de2a6487131107445b5945bfbcb80613, type: 3}
   Sprite04: {fileID: 21300000, guid: f8989faf169cd974c8adba51512f761a, type: 3}
 --- !u!212 &212539057968219526
 SpriteRenderer:
