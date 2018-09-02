@@ -5,20 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour {
 
-    public bool bLostGame = true;
     public GameObject LosingScreen;
-    public GameObject WinningScreen; 
+    public GameObject WinningScreen;
+    private bool bLostGame = false;
 
-	// Update is called once per frame
-	void Update () {
-        if (!bLostGame)
+    // Update is called once per frame
+
+    void Update () {
+        if (bLostGame)
         {
             LoadLostScreen();
         } else
         {
             LoadWinScreen();
         }
-		
+
 	}
 
     public void LoadLostScreen()
