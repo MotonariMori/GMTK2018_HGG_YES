@@ -22,9 +22,12 @@ public class GameManager : MonoBehaviour {
     public Sprite SpriteTwo;
     public Sprite SpriteFull;
 
+    public PauseMenu myPauseMenu;
+
     // Use this for initialization
     void Start () {
 
+        myPauseMenu = FindObjectOfType<PauseMenu>();
         myPlayer = FindObjectOfType<PlayerController>();
         iFrameCounter = 0;
         iAirInSeconds = 6;
@@ -35,20 +38,23 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        switch (myPlayer.iHealth)
+        if (!myPauseMenu.bGameIsPaused)
         {
-            case 0:
-                HealthUI.sprite = SpriteEmpty;
-                break;
-            case 1:
-                HealthUI.sprite = SpriteOne;
-                break;
-            case 2:
-                HealthUI.sprite = SpriteTwo;
-                break;
-            default:
-                HealthUI.sprite = SpriteFull;
-                break;
+            switch (myPlayer.iHealth)
+            {
+                case 0:
+                    HealthUI.sprite = SpriteEmpty;
+                    break;
+                case 1:
+                    HealthUI.sprite = SpriteOne;
+                    break;
+                case 2:
+                    HealthUI.sprite = SpriteTwo;
+                    break;
+                default:
+                    HealthUI.sprite = SpriteFull;
+                    break;
+            }
         }
 		
         if (!myPlayer.bInWater)
