@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     private BoxCollider2D myBoxCollider;
     private CircleCollider2D myCircleCollider;
     private SpriteRenderer mySpriteRenderer;
+    private PauseMenu myPauseMenu;
     [Header("Sprites")]
     public Sprite Sprite01;
     public Sprite Sprite02;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCircleCollider = GetComponent<CircleCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myPauseMenu = FindObjectOfType<PauseMenu>();
 
         //Setting the fish attributes
         fSpeedInWater = 6f;
@@ -49,18 +51,21 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        ControlFish();
-        Inhaling();
-
-        if (myRigidbody.velocity.y == 0)
-            bOnGround = true;
-
-        if (!bOnGround && myRigidbody.velocity.x == 0)
+        if (!myPauseMenu.bGameIsPaused)
         {
-            if (transform.localScale.x == 1)
-                myRigidbody.velocity = new Vector2(-0.5f, myRigidbody.velocity.y);
-            if (transform.localScale.x == -1)
-                myRigidbody.velocity = new Vector2(0.5f, myRigidbody.velocity.y);
+            ControlFish();
+            Inhaling();
+
+            if (myRigidbody.velocity.y == 0)
+                bOnGround = true;
+
+            if (!bOnGround && myRigidbody.velocity.x == 0)
+            {
+                if (transform.localScale.x == 1)
+                    myRigidbody.velocity = new Vector2(-0.5f, myRigidbody.velocity.y);
+                if (transform.localScale.x == -1)
+                    myRigidbody.velocity = new Vector2(0.5f, myRigidbody.velocity.y);
+            }
         }
     }
 
@@ -167,7 +172,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (Input.GetAxisRaw("Horizontal") > 0.1f || Input.GetAxisRaw("Horizontal") < -0.1f)
             {
-                myRigidbody.AddForce(new Vector2(fSpeedOnGround * 2 * Input.GetAxisRaw("Horizontal"), myRigidbody.velocity.y));
+                myRigidbody.AddForce(new Vector2(fSpeedOnGround * 2 * (Input.GetAxisRaw("Horizontal") * 2.5f), myRigidbody.velocity.y));
                 transform.Rotate(Vector3.forward);
 
             }
