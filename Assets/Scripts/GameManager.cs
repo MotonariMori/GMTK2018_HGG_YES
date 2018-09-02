@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour {
             if (myPlayer.iHealth <= 0)
             {
                 //print("You Suck!");
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(4);
                 myEndScreen.bLostGame = false;
             }
             //Count Garbage

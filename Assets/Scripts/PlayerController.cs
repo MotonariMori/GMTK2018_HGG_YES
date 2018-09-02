@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(4);
             myEndScreen.bLostGame = true;
         }
 
